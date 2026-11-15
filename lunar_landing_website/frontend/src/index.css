@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * LunaNav design tokens.
+ * Brand palette (preserved from the original single-file prototype):
+ *   navy   #07111F   mid   #0B1930   silver #C9D0D8
+ *   gold   #D5B77A   white #F4F6F8   muted  #98A5B5
+ */
+@layer base {
+  :root {
+    --background: 214 63% 7%; /* #07111F */
+    --foreground: 210 23% 96%; /* #F4F6F8 */
+
+    --card: 214 61% 12%; /* #0B1930 */
+    --card-foreground: 210 23% 96%;
+
+    --popover: 214 61% 12%;
+    --popover-foreground: 210 23% 96%;
+
+    --primary: 40 52% 66%; /* #D5B77A gold */
+    --primary-foreground: 214 63% 7%;
+
+    --secondary: 214 45% 16%; /* #0E1E38 */
+    --secondary-foreground: 210 23% 96%;
+
+    --muted: 214 40% 18%;
+    --muted-foreground: 212 18% 65%; /* #98A5B5 */
+
+    --accent: 214 45% 20%;
+    --accent-foreground: 210 23% 96%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 210 23% 96%;
+
+    --border: 216 46% 20%; /* #1B2C49 */
+    --input: 216 46% 20%;
+    --ring: 40 52% 66%;
+
+    --radius: 0.6rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-lunanav-navy text-lunanav-white font-sans antialiased;
+    background-image: radial-gradient(
+      circle at 20% 0%,
+      #12233f 0%,
+      #07111f 55%,
+      #050c16 100%
+    );
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #07111f;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1b2c49;
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2a4270;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-lg border border-lunanav-line bg-lunanav-mid/80 backdrop-blur-sm;
+  }
+
+  .panel-header {
+    @apply flex items-center justify-between gap-2 border-b border-lunanav-line px-4 py-3;
+  }
+
+  .mono-label {
+    @apply font-mono text-[11px] uppercase tracking-[0.14em] text-lunanav-muted;
+  }
+
+  .stat-value {
+    @apply font-mono text-2xl font-medium text-lunanav-white;
+  }
+
+  .hairline {
+    @apply border-lunanav-line;
+  }
+
+  .grid-overlay {
+    background-image: linear-gradient(
+        rgba(27, 44, 73, 0.35) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(27, 44, 73, 0.35) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+}
